@@ -18,6 +18,8 @@ function HomeDetails() {
   const [property, setProperty] = React.useState([])
   //create state for property images
   const [propertyImages, setPropertyImages] = React.useState([])
+  //create state for property bedroom prices
+  const [bedPrices, setBedPrices] = React.useState({})
 
   
   React.useEffect(
@@ -28,6 +30,7 @@ function HomeDetails() {
         console.log(res.data)
         setProperty(res.data)
         setPropertyImages(res.data?.images)
+        setBedPrices(res.data?.bedroom_prices)
       })
       .catch(err=>console.log(err))
     }, []
@@ -70,7 +73,8 @@ function HomeDetails() {
             <h4>Bedroom Prices</h4>
             <div className='price-wrapper'>
               {/* <p>{property?.bedroom_prices?.bedroom_one}</p> */}
-              
+              <BedroomPrices prices={bedPrices}
+                    propertyData={property}/>
             </div>
           </div>
         </div>
