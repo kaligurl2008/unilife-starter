@@ -16,6 +16,8 @@ function HomeDetails() {
 
   //create state for property info
   const [property, setProperty] = React.useState([])
+  //create state for property images
+  const [propertyImages, setPropertyImages] = React.useState([])
 
   
   React.useEffect(
@@ -23,8 +25,9 @@ function HomeDetails() {
       //call api to get property details
       axios.get(`${baseUrl}/properties/${homeId}`)
       .then(res=>{
-        // console.log(res.data)
+        console.log(res.data)
         setProperty(res.data)
+        setPropertyImages(res.data?.images)
       })
       .catch(err=>console.log(err))
     }, []
@@ -39,16 +42,16 @@ function HomeDetails() {
       <div className='home-detail-wrapper'>
         <div className='home-detail-left-container'>
           <div className='home-detail-images'>
-            <PropertyImages property={property} />
+            <PropertyImages images={propertyImages} />
           </div>
           <div className='description-container'>
             <h4>Description</h4>
-            <p>{property.property_description}</p>
+            <p>{property?.property_description}</p>
           </div>
           <div className='features-container'>
             <h4>Key Features</h4>
             {
-              property?.key_features?.map(item=> <p><AiOutlineCheck key={property._id}/>&nbsp;{item}</p>)
+              property?.key_features?.map(item=> <p><AiOutlineCheck key={property?._id}/>&nbsp;{item}</p>)
             }
           </div>
         </div>
