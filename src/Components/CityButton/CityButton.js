@@ -12,11 +12,12 @@ function CityButton({city}) {
         width:"302px",
         height:"88px",
         margin:"12px",
+        cursor:"pointer"
     }
 
   return (
     <div className='city-button-wrapper'>
-        <Link to="">
+        <Link to={`/citydetails/${city._id}`}>
         <button className='button'
         style={buttonStyle}>{city.name}</button>
         </Link>
