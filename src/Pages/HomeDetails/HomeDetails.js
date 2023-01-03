@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import './HomeDetails.css'
 import {AiOutlineLeft, AiOutlineCheck} from 'react-icons/ai'
 import axios from 'axios'
@@ -10,6 +10,9 @@ import PropertyImages from './../../Components/PropertyImages/PropertyImages';
 
 function HomeDetails() {
   const baseUrl = "https://unilife-server.herokuapp.com"
+
+  //activate useNavigate
+  let navigate = useNavigate();
 
   const {homeId} = useParams();
   //console.log(homeId);
@@ -38,9 +41,10 @@ function HomeDetails() {
 
   return (
     <div className='home-detail-container'>
-      <div className='back-to-search-container'>
+      <div className='back-to-search-container'
+        onClick={()=>navigate(`/citydetails/${property?.city_id?._id}`)}>
         <AiOutlineLeft />
-        <p>Back to Search</p>
+        <p>&nbsp;&nbsp;Back to Search</p>
       </div>
       <div className='home-detail-wrapper'>
         <div className='home-detail-left-container'>

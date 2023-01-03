@@ -1,0 +1,5 @@
+.back-to-search-container{
+    display: flex;
+    cursor: pointer;
+    margin: 16px;
+}
