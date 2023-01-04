@@ -44,7 +44,7 @@ function CityDetails() {
         <PropertySearch />
       </div>
       <div className='properties-wrapper'>
-        <h2>{`${totalProperties} in city placeholder`}</h2>
+        <h2>{`${totalProperties} in ${properties[0]?.address?.city}`}</h2>
         <div className='properties-container'>
           {
             properties.map(item => <PropertyCard 
