@@ -36,6 +36,9 @@ function HomeDetails() {
         setBedPrices(res.data?.bedroom_prices)
       })
       .catch(err=>console.log(err))
+
+
+      
     }, []
   )
 

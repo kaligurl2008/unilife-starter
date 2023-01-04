@@ -1,3 +1,9 @@
+.city-details-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .properties-wrapper{
     margin-top: 100px;
     display: flex;
@@ -9,4 +15,20 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.student-info-container{
+    width:80%;
+    height: 520px;
+    display: flex;
+}
+
+.student-text-container{
+    width: 50%;
+}
+
+.student-image-container img{
+    width: 560px;
+    height: 400px;
+    border-radius: 24px;
 }
